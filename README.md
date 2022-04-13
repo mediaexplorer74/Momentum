@@ -13,8 +13,8 @@ Min. os. build: 14393
 
 ## Screenshots
 <table><tr>
-<td> <img src="Images/shot1.png" alt="Desktop" style="width: 250px;"/> </td>
-<td> <img src="Images/shot2.png" alt="Mobile" style="width: 250px;"/> </td>
+<td> <img src="Images/shot1.png" alt="Desktop" style="width: 400px;"/> </td>
+<td> <img src="Images/shot2.png" alt="Mobile" style="width: 200px;"/> </td>
 </tr></table>
 
 ## Abstract
