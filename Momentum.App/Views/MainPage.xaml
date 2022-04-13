@@ -1,0 +1,347 @@
+﻿<uwpcControls:UniversalPage
+    x:Class="Momentum.App.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Momentum.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uwpcControls="using:UWPCore.Framework.Controls"
+    xmlns:uwpcConverters="using:UWPCore.Framework.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <uwpcConverters:StringFormatConverter x:Key="StringFormatConv" />
+        <uwpcConverters:BooleanToVisibilityConverter x:Key="BoolToVisConv" />
+
+        <Storyboard x:Name="ShowBackgroundImage">
+            <DoubleAnimation Duration="0:0:0.66" To="0.75" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="copyright">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase Amplitude="1" EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ShowQuote">
+            <DoubleAnimation Duration="0:0:1" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="quote" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="1" EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="StartupAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="welcome" d:IsOptimized="True">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="1.25" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.25" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="welcome" d:IsOptimized="True">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="1.25" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.25" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimation BeginTime="0:0:0.5" Duration="0:0:1" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="clock" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="1" EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation BeginTime="0:0:0.75" Duration="0:0:1" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="focus" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="1" EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Style x:Key="FocusTextBoxStyle" TargetType="TextBox">
+            <Setter Property="MinWidth" Value="{ThemeResource TextControlThemeMinWidth}"/>
+            <Setter Property="MinHeight" Value="{ThemeResource TextControlThemeMinHeight}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"/>
+            <Setter Property="SelectionHighlightColor" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource TextControlBorderThemeThickness}"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+            <Setter Property="Padding" Value="{ThemeResource TextControlThemePadding}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style x:Name="DeleteButtonStyle" TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid x:Name="ButtonLayoutGrid" BorderBrush="{ThemeResource TextBoxButtonBorderThemeBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{ThemeResource TextBoxButtonBackgroundThemeBrush}">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal" />
+                                                            <VisualState x:Name="PointerOver" />
+                                                            <VisualState x:Name="Pressed">
+                                                                <Storyboard>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="GlyphElement">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltChromeWhiteBrush}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled">
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ButtonLayoutGrid"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <TextBlock x:Name="GlyphElement" AutomationProperties.AccessibilityView="Raw" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}" FontStyle="Normal" FontWeight="Bold" FontSize="16" FontFamily="{ThemeResource SymbolThemeFontFamily}" HorizontalAlignment="Center" Text="&#xE10A;" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="0.2"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="PlaceholderTextContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlPageTextChromeBlackMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundChromeWhiteBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBackgroundFocusedOpacity}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundChromeBlackHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="RequestedTheme" Storyboard.TargetName="ContentElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Light"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DeleteButton">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ButtonStates">
+                                    <VisualState x:Name="ButtonVisible" />
+                                    <VisualState x:Name="ButtonCollapsed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="BackgroundElement" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" Margin="{TemplateBinding BorderThickness}" Opacity="0" Grid.Row="1" Grid.RowSpan="1" />
+                            <ScrollViewer x:Name="ContentElement" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsTabStop="False" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Grid.Row="1" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="Disabled"/>
+                            <ContentControl x:Name="PlaceholderTextContentPresenter" Grid.ColumnSpan="2" Content="{TemplateBinding PlaceholderText}" HorizontalContentAlignment="Center" Foreground="{TemplateBinding Foreground}" IsHitTestVisible="False" IsTabStop="False" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Grid.Row="1" FontWeight="Light"/>
+                            <Button x:Name="DeleteButton" BorderThickness="{TemplateBinding BorderThickness}" Grid.Column="1" FontSize="{TemplateBinding FontSize}" IsTabStop="False" Margin="0,0,-2,0" MinWidth="34" Grid.Row="1" Style="{StaticResource DeleteButtonStyle}" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ClearFocusClicked"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal" Opacity="0.66">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="/Momentum.Common/Resources/AppBarSettings" Label="Settings" Command="{Binding NavigateSettingsCommand}" />
+                <AppBarButton x:Uid="/Momentum.Common/Resources/AppBarLockscreen" Label="Set as lockscreen" Command="{Binding SetAsLockscreenCommand}" />
+                <AppBarButton x:Uid="/Momentum.Common/Resources/AppBarWallpaper" Label="Set as wallpaper" Command="{Binding SetAsWallpaperCommand}" />
+                <AppBarButton x:Uid="/Momentum.Common/Resources/AppBarIAP" Label="Purchase Pro Version" Command="{Binding PurchaseProVersionCommand}" />
+                <AppBarButton x:Uid="/Momentum.Common/Resources/AppBarAbout" Label="About" Command="{Binding NavigateAboutCommand}" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          EntranceNavigationTransitionInfo.IsTargetElement="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <VisualState x:Name="SplitModeMini">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0"   />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SplitModeLandscapeNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" MinWindowHeight="0"   />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="QuoteText.MaxWidth"
+                                Value="620" />
+                        <Setter Target="FocusTextBox.Width"
+                                Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SplitModeLandscape">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" MinWindowHeight="460"   />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="QuoteText.MaxWidth"
+                                Value="420" />
+                        <Setter Target="focus.Margin"
+                                Value="0,28,0,4" />
+                        <Setter Target="quote.Margin"
+                                Value="0,0,0,12" />
+                        <Setter Target="QuoteText.FontSize"
+                                Value="15" />
+                        <Setter Target="QuoteAuthor.FontSize"
+                                Value="12" />
+                        <Setter Target="FocusTextBox.Width"
+                                Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SplitModePortraitNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="640" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="focus.Margin"
+                                Value="0,28,0,4" />
+                        <Setter Target="quote.Margin"
+                                Value="0,0,0,12" />
+                        <Setter Target="QuoteText.FontSize"
+                                Value="15" />
+                        <Setter Target="QuoteAuthor.FontSize"
+                                Value="12" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SplitModePortrait">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" MinWindowHeight="640" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="QuoteText.MaxWidth"
+                                Value="620" />
+                        <Setter Target="focus.Margin"
+                                Value="0,28,0,4" />
+                        <Setter Target="quote.Margin"
+                                Value="0,0,0,12" />
+                        <Setter Target="QuoteText.FontSize"
+                                Value="15" />
+                        <Setter Target="QuoteAuthor.FontSize"
+                                Value="12" />
+                        <Setter Target="FocusTextBox.Width"
+                                Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+
+        </VisualStateManager.VisualStateGroups>
+
+        <Button Grid.Row="1" Width="1" Height="1" TabIndex="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+        <!-- just here to steal the initial focus (workaround!) -->
+
+        <Image Grid.RowSpan="2" x:Name="image" Source="{Binding BackgroundImageSource}" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.1" Margin="0,0,0,-24" />
+
+        <StackPanel Grid.Row="0" x:Name="contentContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="clock" Text="{Binding CurrentTime, Converter={StaticResource StringFormatConv}, ConverterParameter=HH:mm}" FontSize="84" FontWeight="SemiLight" TextAlignment="Center" >
+                <TextBlock.Projection>
+                    <PlaneProjection RotationX="90"/>
+                </TextBlock.Projection>
+            </TextBlock>
+            <TextBlock x:Name="welcome" Style="{StaticResource SubtitleTextBlockStyle}" FontSize="20" TextAlignment="Center" DoubleTapped="NameDoulbeTapped" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform ScaleX="0" ScaleY="0"/>
+                </TextBlock.RenderTransform>
+                <Run Text="{Binding WelcomeStart}" />
+                <Run Text="{Binding UserName}" /><Run Text="." />
+            </TextBlock>
+
+            <StackPanel x:Name="focus" Margin="0,8,0,4">
+                <StackPanel.Projection>
+                    <PlaneProjection RotationX="90"/>
+                </StackPanel.Projection>
+                <TextBlock x:Uid="/Momentum.Common/Resources/TodaysFocus" Style="{StaticResource SubheaderTextBlockStyle}" FontWeight="SemiLight" FontSize="18" TextAlignment="Center" />
+                <TextBox x:Name="FocusTextBox" x:Uid="/Momentum.Common/Resources/WhatsYourFocus" Text="{Binding TodaysFocus, Mode=TwoWay}" Width="320" FontWeight="SemiBold" FontSize="20" TextAlignment="Center" Style="{StaticResource FocusTextBoxStyle}"
+                         AcceptsReturn="True" InputScope="Text" IsSpellCheckEnabled="False" TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="quote" Margin="0,0,0,8" VerticalAlignment="Bottom">
+            <StackPanel.Projection>
+                <PlaneProjection RotationX="90"/>
+            </StackPanel.Projection>
+            <TextBlock x:Name="QuoteText" Text="{Binding QuoteText}" Style="{StaticResource BodyTextBlockStyle}" FontSize="14" TextAlignment="Center" MaxWidth="320" x:Uid="/Momentum.Common/Resources/Quote" Tapped="QuoteTapped" />
+            <TextBlock x:Name="QuoteAuthor" Text="{Binding QuoteAuthor}" Style="{StaticResource BodyTextBlockStyle}" FontStyle="Italic" FontSize="11" TextAlignment="Center" />
+        </StackPanel>
+
+
+        <TextBlock Grid.RowSpan="2" x:Name="copyright" Text="{Binding BackgroundCopyright}" Style="{StaticResource BodyTextBlockStyle}" FontSize="11" FontStyle="Italic" Margin="4,0,0,-20" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <TextBlock.Projection>
+                <PlaneProjection RotationX="90"/>
+            </TextBlock.Projection>
+        </TextBlock>
+
+        <!-- progress overlay -->
+        <Rectangle Grid.RowSpan="2" Fill="{StaticResource SystemControlBackgroundAltHighBrush}" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisConv}}" Opacity="0.75" />
+        <ProgressRing Grid.RowSpan="2" Width="64" Height="64" IsActive="{Binding IsLoading}" Foreground="{StaticResource SystemControlForegroundBaseHighBrush}" />
+
+        <!-- adverts -->
+        <Grid x:Name="myAdGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Width="320" Height="50"
+              Visibility="{x:Bind ViewModel.IsAdVisible, Mode=OneWay, Converter={StaticResource BoolToVisConv}}"/>
+    </Grid>
+</uwpcControls:UniversalPage>

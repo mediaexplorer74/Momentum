@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A730354A-B009-4392-8D04-E065347E548A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UWPCore.Framework</RootNamespace>
+    <AssemblyName>UWPCore.Framework</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <PRIResource Include="Strings\zh-TW\Resources.resw" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\uk-UA\Resources.resw" />
+    <PRIResource Include="Strings\pt\Resources.resw" />
+    <PRIResource Include="Strings\pl-PL\Resources.resw" />
+    <PRIResource Include="Strings\ko-KR\Resources.resw" />
+    <PRIResource Include="Strings\he-IL\Resources.resw" />
+    <PRIResource Include="Strings\cs-CZ\Resources.resw" />
+    <PRIResource Include="Strings\sv-SE\Resources.resw" />
+    <PRIResource Include="Strings\tr-TR\Resources.resw" />
+    <PRIResource Include="Strings\it-IT\Resources.resw" />
+    <PRIResource Include="Strings\es-ES\Resources.resw" />
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\IOnlineIdService.cs" />
+    <Compile Include="Accounts\OnlineIdService.cs" />
+    <Compile Include="Audio\AudioService.cs" />
+    <Compile Include="Audio\IAudioService.cs" />
+    <Compile Include="Collections\CollectionExtensions.cs" />
+    <Compile Include="Collections\ListExtensions.cs" />
+    <Compile Include="Collections\ObservableDictionary.cs" />
+    <Compile Include="Common\AsyncTools.cs" />
+    <Compile Include="Common\QueueExtensions.cs" />
+    <Compile Include="Common\TaskExtensions.cs" />
+    <Compile Include="Controls\ControlBindingHelper.cs" />
+    <Compile Include="Controls\SwipeableSplitView.cs" />
+    <Compile Include="Controls\WebViewExtensions.cs" />
+    <Compile Include="Converters\BooleanToNullableConverter.cs" />
+    <Compile Include="Converters\EmptyStringToVisibilityConverter.cs" />
+    <Compile Include="Data\CacheService.cs" />
+    <Compile Include="Data\EnumIndexSource.cs" />
+    <Compile Include="Data\ICacheService.cs" />
+    <Compile Include="Data\StringComboBoxSource.cs" />
+    <Compile Include="Devices\Version.cs" />
+    <Compile Include="Input\IKeyboardService.cs" />
+    <Compile Include="Models\ThirdPartyModel.cs" />
+    <Compile Include="Mvvm\ICommand.cs" />
+    <Compile Include="Support\IStartupActionService.cs" />
+    <Compile Include="Support\StartupAction.cs" />
+    <Compile Include="Support\StartupActionService.cs" />
+    <Compile Include="UI\AppColorProperties.cs" />
+    <Compile Include="Common\AppInfo.cs" />
+    <Compile Include="Common\DispatcherWrapper.cs" />
+    <Compile Include="Common\EnumExtensions.cs" />
+    <Compile Include="Common\HandledEventArgs.cs" />
+    <Compile Include="Common\Localizer.cs" />
+    <Compile Include="Common\StateItem.cs" />
+    <Compile Include="Common\StateItems.cs" />
+    <Compile Include="Common\StringExtensions.cs" />
+    <Compile Include="Common\SystemIcons.cs" />
+    <Compile Include="Common\TypedEventHandler.cs" />
+    <Compile Include="Controls\OneDriveControl.xaml.cs">
+      <DependentUpon>OneDriveControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UniversalPage.cs" />
+    <Compile Include="Common\WindowWrapper.cs" />
+    <Compile Include="Controls\AboutControl.xaml.cs">
+      <DependentUpon>AboutControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AppShell.xaml.cs">
+      <DependentUpon>AppShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavMenuListView.cs" />
+    <Compile Include="Controls\PageHeader.xaml.cs">
+      <DependentUpon>PageHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WrapPanel.cs" />
+    <Compile Include="Converters\BooleanNegationConverter.cs" />
+    <Compile Include="Converters\BooleanToBrushConverter.cs" />
+    <Compile Include="Converters\BooleanToDoubleConverter.cs" />
+    <Compile Include="Converters\BooleanToStringConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\EnumDisplayValueConverter.cs" />
+    <Compile Include="Converters\StringCaseConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\StringToListConverter.cs" />
+    <Compile Include="Converters\TimeToShapeConverter.cs" />
+    <Compile Include="Data\DataContractSerializationService.cs" />
+    <Compile Include="Data\EnumSource.cs" />
+    <Compile Include="Data\ICompressionService.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IRepositoryItem.cs" />
+    <Compile Include="Data\ISerializationService.cs" />
+    <Compile Include="Data\RadioButtonStringSource.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
+    <Compile Include="Data\ZipArchiveService.cs" />
+    <Compile Include="Devices\DeviceInfoService.cs" />
+    <Compile Include="Devices\DisplayService.cs" />
+    <Compile Include="Devices\IDeviceInfoService.cs" />
+    <Compile Include="Devices\IDeviceService.cs" />
+    <Compile Include="Devices\IDisplayService.cs" />
+    <Compile Include="Devices\IPersonalizationService.cs" />
+    <Compile Include="Devices\IVibrateService.cs" />
+    <Compile Include="Devices\PersonalizationService.cs" />
+    <Compile Include="Devices\VibrateService.cs" />
+    <Compile Include="Graphics\GraphicsService.cs" />
+    <Compile Include="Graphics\IGraphicsService.cs" />
+    <Compile Include="Input\KeyboardEventArgs.cs" />
+    <Compile Include="Input\KeyboardController.cs" />
+    <Compile Include="Input\KeyboardService.cs" />
+    <Compile Include="IoC\DesignTimeInjector.cs" />
+    <Compile Include="IoC\IInjector.cs" />
+    <Compile Include="IoC\Injector.cs" />
+    <Compile Include="Launcher\SettingsLauncher.cs" />
+    <Compile Include="Launcher\StoreLauncher.cs" />
+    <Compile Include="Launcher\SystemLauncher.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Models\ContributorModel.cs" />
+    <Compile Include="IoC\DefaultModule.cs" />
+    <Compile Include="Mvvm\BindableBase.cs" />
+    <Compile Include="Mvvm\DelegateCommand.cs" />
+    <Compile Include="Mvvm\IBindable.cs" />
+    <Compile Include="Mvvm\ViewModelBase.cs" />
+    <Compile Include="Navigation\FrameFacade.cs" />
+    <Compile Include="Navigation\INavigable.cs" />
+    <Compile Include="Navigation\NavigatedEventArgs.cs" />
+    <Compile Include="Navigation\NavigatingEventArgs.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Networking\HttpConstants.cs" />
+    <Compile Include="Networking\HttpService.cs" />
+    <Compile Include="Networking\IHttpService.cs" />
+    <Compile Include="Networking\INetworkInfoService.cs" />
+    <Compile Include="Networking\IWebDownloadService.cs" />
+    <Compile Include="Networking\NetworkInfoService.cs" />
+    <Compile Include="Networking\WebDownloadService.cs" />
+    <Compile Include="Notifications\AdaptiveTileFactory.cs" />
+    <Compile Include="Notifications\AdaptiveToastFactory.cs" />
+    <Compile Include="Notifications\BadgeFactory.cs" />
+    <Compile Include="Notifications\BadgeService.cs" />
+    <Compile Include="Notifications\IAdaptiveTileFactory.cs" />
+    <Compile Include="Notifications\IAdaptiveToastFactory.cs" />
+    <Compile Include="Notifications\IBadgeFactory.cs" />
+    <Compile Include="Notifications\IBadgeService.cs" />
+    <Compile Include="Notifications\ITileFactory.cs" />
+    <Compile Include="Notifications\ITileService.cs" />
+    <Compile Include="Notifications\IToastFactory.cs" />
+    <Compile Include="Notifications\IToastService.cs" />
+    <Compile Include="Notifications\Models\AdaptiveAction.cs" />
+    <Compile Include="Notifications\Models\AdaptiveActions.cs" />
+    <Compile Include="Notifications\Models\AdaptiveAudio.cs" />
+    <Compile Include="Notifications\Models\AdaptiveBinding.cs" />
+    <Compile Include="Notifications\Models\AdaptiveGroup.cs" />
+    <Compile Include="Notifications\Models\AdaptiveInput.cs" />
+    <Compile Include="Notifications\Models\AdaptiveSelection.cs" />
+    <Compile Include="Notifications\Models\AdaptiveToastModel.cs" />
+    <Compile Include="Notifications\Models\IAdaptiveActionsChild.cs" />
+    <Compile Include="Notifications\Models\IAdaptive.cs" />
+    <Compile Include="Notifications\Models\AdaptiveImage.cs" />
+    <Compile Include="Notifications\Models\IAdaptiveNotification.cs" />
+    <Compile Include="Notifications\Models\IAdaptiveSubGroupChild.cs" />
+    <Compile Include="Notifications\Models\IAdaptiveVisualChild.cs" />
+    <Compile Include="Notifications\Models\AdaptiveSubGroup.cs" />
+    <Compile Include="Notifications\Models\AdaptiveText.cs" />
+    <Compile Include="Notifications\Models\AdaptiveTileModel.cs" />
+    <Compile Include="Notifications\Models\AdaptiveVisual.cs" />
+    <Compile Include="Notifications\Models\AdaptiveVisualBindingBase.cs" />
+    <Compile Include="Notifications\Models\SecondaryTileModel.cs" />
+    <Compile Include="Notifications\TileFactory.cs" />
+    <Compile Include="Notifications\TileService.cs" />
+    <Compile Include="Notifications\ToastFactory.cs" />
+    <Compile Include="Notifications\ToastService.cs" />
+    <Compile Include="Primitive\Lazy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\UniversalApp.cs" />
+    <Compile Include="Security\Cryptography\Aes256Service.cs" />
+    <Compile Include="Security\Cryptography\DataProtectionProviderService.cs" />
+    <Compile Include="Security\Cryptography\IDataProtectionProviderService.cs" />
+    <Compile Include="Security\Cryptography\ISymmetricAlgorithmService.cs" />
+    <Compile Include="Share\EmailService.cs" />
+    <Compile Include="Share\IEmailService.cs" />
+    <Compile Include="Share\IShareContentService.cs" />
+    <Compile Include="Share\ShareContentService.cs" />
+    <Compile Include="Speech\IRecognitionResult.cs" />
+    <Compile Include="Speech\ISpeechService.cs" />
+    <Compile Include="Speech\RecognitionResult.cs" />
+    <Compile Include="Speech\SpeechService.cs" />
+    <Compile Include="Storage\ILocalStorageService.cs" />
+    <Compile Include="Storage\IOConstants.cs" />
+    <Compile Include="Storage\IRoamingStorageService.cs" />
+    <Compile Include="Storage\ISharedLocalStorageService.cs" />
+    <Compile Include="Storage\IStorageService.cs" />
+    <Compile Include="Storage\ITemporaryStorageService.cs" />
+    <Compile Include="Storage\LocalObject.cs" />
+    <Compile Include="Storage\LocalStorageService.cs" />
+    <Compile Include="Storage\OneDriveStorageService.cs" />
+    <Compile Include="Storage\RoamingStorageService.cs" />
+    <Compile Include="Storage\SharedLocalStorageService.cs" />
+    <Compile Include="Storage\StorageServiceBase.cs" />
+    <Compile Include="Storage\RoamingObject.cs" />
+    <Compile Include="Storage\StoredObjectBase.cs" />
+    <Compile Include="Storage\TemporaryStorageService.cs" />
+    <Compile Include="Store\ILicenseService.cs" />
+    <Compile Include="Store\LicenseService.cs" />
+    <Compile Include="Store\ProductItem.cs" />
+    <Compile Include="Accounts\IUserInfoService.cs" />
+    <Compile Include="Accounts\UserInfoService.cs" />
+    <Compile Include="Tasks\BackgroundTaskService.cs" />
+    <Compile Include="Tasks\IBackgroundTaskService.cs" />
+    <Compile Include="UI\AutoAppColorProperties.cs" />
+    <Compile Include="UI\ColorConverter.cs" />
+    <Compile Include="UI\DialogService.cs" />
+    <Compile Include="UI\IAppColorProperties.cs" />
+    <Compile Include="UI\IDialogService.cs" />
+    <Compile Include="Devices\IStatusBarService.cs" />
+    <Compile Include="Devices\StatusBarService.cs" />
+    <Compile Include="UI\TemplateSelectorBase.cs" />
+    <Compile Include="UI\Triggers\OrientationTrigger.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\DesignTime\OneDriveViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IOneDriveViewModel.cs" />
+    <Compile Include="ViewModels\OneDriveViewModel.cs" />
+    <Content Include="Properties\UWPCore.Framework.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\AboutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AppShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OneDriveControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\ShellStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\SystemIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.19041.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.19041.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.13</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.OneDriveSDK">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Portable.Ninject">
+      <Version>3.3.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .NET Native|AnyCPU'">
+    <OutputPath>bin\Debug .NET Native\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .NET Native|ARM'">
+    <OutputPath>bin\ARM\Debug .NET Native\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>false</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .NET Native|x64'">
+    <OutputPath>bin\x64\Debug .NET Native\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .NET Native|x86'">
+    <OutputPath>bin\x86\Debug .NET Native\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE %28performance%29|AnyCPU'">
+    <OutputPath>bin\RELEASE %28performance%29\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE %28performance%29|ARM'">
+    <OutputPath>bin\ARM\RELEASE %28performance%29\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE %28performance%29|x64'">
+    <OutputPath>bin\x64\RELEASE %28performance%29\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE %28performance%29|x86'">
+    <OutputPath>bin\x86\RELEASE %28performance%29\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
